@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>黄丽 | 个人简历 Resume</title>
+    <style>
+        :root {
+            /* 参考图背景色：暖米白 */
+            --bg: #f4f1ec;
+            --bg-soft: #faf9f6;
+            --card: #ffffff;
+            --ink: #1a1f2e;
+            --sub: #6b7385;
+            --line: #e8e4dc;
+            /* 参考图强调色：暖铜橙 */
+            --accent: #c87a4a;
+            --accent-soft: #fdf1e9;
+            --blue: #5b8def;
+            --blue-soft: #eef3fe;
+            --green: #4fc39a;
+            --green-soft: #e9f8f2;
+            --violet: #9385ee;
+            --violet-soft: #f1eefe;
+            --radius: 20px;
+            --shadow-sm: 0 2px 10px rgba(26, 31, 46, .04);
+            --shadow-md: 0 10px 30px rgba(26, 31, 46, .06);
+            --shadow-lg: 0 30px 70px rgba(26, 31, 46, .14);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.75;
+            letter-spacing: .1px;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        body.no-scroll {
+            overflow: hidden
+        }
+
+        /* ============================================================
+   页面容器
+   ============================================================ */
+        .page {
+            display: none
+        }
+
+        .page.active {
+            display: block;
+            animation: pageIn .36s cubic-bezier(.22, 1, .36, 1) both
+        }
+
+        @keyframes pageIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px)
+            }
+
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        /* ============================================================
+   界面一：封面
+   ============================================================ */
+        #pageCover.active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 48px 24px;
+            text-align: center;
+            cursor: pointer;
+            background:
+                radial-gradient(circle at 20% 18%, rgba(200, 122, 74, .08), transparent 46%),
+                radial-gradient(circle at 82% 80%, rgba(91, 141, 239, .06), transparent 46%),
+                radial-gradient(circle at 74% 14%, rgba(79, 195, 154, .06), transparent 42%),
+                var(--bg);
+        }
+
+        .avatar {
+            width: 176px;
+            height: 176px;
+            border-radius: 50%;
+            background: linear-gradient(140deg, #d99a6f 0%, #c87a4a 48%, #b86a3e 100%);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 56px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            border: 7px solid #fff;
+            box-shadow: 0 22px 52px rgba(200, 122, 74, .24), 0 4px 14px rgba(26, 31, 46, .06);
+            transition: transform .4s cubic-bezier(.22, 1, .36, 1), box-shadow .4s ease;
+            user-select: none;
+            overflow: hidden;
+        }
+
+        #pageCover:hover .avatar {
+            transform: translateY(-6px) scale(1.05);
+            box-shadow: 0 34px 68px rgba(200, 122, 74, .30), 0 6px 18px rgba(26, 31, 46, .08);
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block
+        }
+
+        .cover-name {
+            margin-top: 32px;
+            font-size: 38px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--ink)
+        }
+
+        .cover-name span {
+            color: var(--accent)
+        }
+
+        .cover-en-name {
+            margin-top: 6px;
+            font-size: 15px;
+            color: var(--sub);
+            font-weight: 500;
+            letter-spacing: 1px
+        }
+
+        .cover-role {
+            margin-top: 14px;
+            color: var(--sub);
+            font-size: 15px;
+            letter-spacing: .3px
+        }
+
+        .cover-tags {
+            margin-top: 22px;
+            display: flex;
+            gap: 9px;
+            flex-wrap: wrap;
+            justify-content: center
+        }
+
+        .cover-tag {
+            font-size: 12.5px;
+            font-weight: 600;
+            padding: 5px 14px;
+            border-radius: 999px;
+            background: #fff;
+            border: 1px solid var(--line);
+            color: var(--sub);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .cover-hint {
+            margin-top: 40px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #fff;
+            border-radius: 999px;
+            padding: 11px 28px;
+            background: linear-gradient(135deg, #d99a6f, #c87a4a);
+            box-shadow: 0 12px 28px rgba(200, 122, 74, .28);
+            transition: transform .3s ease, box-shadow .3s ease;
+            animation: float 2.6s ease-in-out infinite;
+        }
+
+        #pageCover:hover .cover-hint {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 34px rgba(200, 122, 74, .38);
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(-4px)
+            }
+        }
+
+        /* ============================================================
+   界面二 / 三：简历
+   ============================================================ */
+        .resume-wrap {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 36px 24px 90px;
+            position: relative
+        }
+
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 28px
+        }
+
+        .back-btn {
+            border: 1px solid var(--line);
+            background: #fff;
+            color: var(--sub);
+            border-radius: 999px;
+            padding: 10px 22px;
+            font-size: 13.5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .22s ease;
+            font-family: inherit;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .back-btn:hover {
+            border-color: #e8d5c8;
+            color: var(--accent);
+            background: var(--accent-soft)
+        }
+
+        .lang-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            border: 1px solid var(--line);
+            background: #fff;
+            border-radius: 999px;
+            padding: 9px 22px 9px 16px;
+            cursor: pointer;
+            font-family: inherit;
+            box-shadow: var(--shadow-sm);
+            transition: all .22s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .lang-toggle:hover {
+            border-color: #e8d5c8;
+            background: var(--accent-soft);
+            box-shadow: 0 8px 22px rgba(200, 122, 74, .14);
+            transform: translateY(-1px);
+        }
+
+        .lang-toggle .globe {
+            width: 16px;
+            height: 16px;
+            color: var(--accent);
+            flex: 0 0 auto
+        }
+
+        .lang-toggle .lang-text {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: .6px;
+            line-height: 1.4
+        }
+
+        /* 头部信息卡 */
+        header.hero {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 34px 36px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--line);
+            display: flex;
+            gap: 26px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 22px;
+        }
+
+        .avatar-sm {
+            width: 92px;
+            height: 92px;
+            border-radius: 50%;
+            flex: 0 0 auto;
+            overflow: hidden;
+            background: linear-gradient(140deg, #d99a6f, #c87a4a 55%, #b86a3e);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            border: 5px solid #fff;
+            box-shadow: 0 10px 26px rgba(200, 122, 74, .20);
+        }
+
+        .avatar-sm img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block
+        }
+
+        .hero-info {
+            flex: 1 1 auto;
+            min-width: 0
+        }
+
+        .hero-info h1 {
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--ink)
+        }
+
+        .hero-info h1 span {
+            color: var(--accent)
+        }
+
+        .hero-info .hero-en {
+            font-size: 15px;
+            color: var(--sub);
+            font-weight: 500;
+            margin-top: 4px;
+            letter-spacing: .5px
+        }
+
+        .hero-info .meta {
+            margin-top: 14px;
+            color: var(--sub);
+            font-size: 14px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 14px;
+        }
+
+        .hero-info .meta span {
+            white-space: nowrap;
+            background: var(--bg-soft);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 4px 12px;
+            font-weight: 500;
+        }
+
+        /* ============================================================
+   四个模块（折叠态）
+   ============================================================ */
+        .module {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 22px 26px;
+            margin-bottom: 16px;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            transition: transform .24s cubic-bezier(.22, 1, .36, 1),
+                box-shadow .24s ease,
+                border-color .24s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity .24s ease;
+            background: linear-gradient(135deg, rgba(200, 122, 74, .04), rgba(91, 141, 239, .04));
+        }
+
+        .module:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 42px rgba(26, 31, 46, .08);
+        }
+
+        .module:hover::after {
+            opacity: 1
+        }
+
+        .module-head {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            position: relative;
+            z-index: 1
+        }
+
+        .module-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 15px;
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform .24s ease, background .24s ease, color .24s ease;
+        }
+
+        .module-icon svg {
+            width: 22px;
+            height: 22px
+        }
+
+        .module:hover .module-icon {
+            transform: scale(1.06)
+        }
+
+        .module-head-left {
+            flex: 1 1 auto;
+            min-width: 0
+        }
+
+        .module-title {
+            font-size: 16.5px;
+            font-weight: 700;
+            letter-spacing: .2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .module-title::before {
+            content: "";
+            width: 4px;
+            height: 18px;
+            border-radius: 3px;
+        }
+
+        .module-sub {
+            font-size: 12.5px;
+            color: var(--sub);
+            margin-top: 4px;
+            padding-left: 14px
+        }
+
+        .module-arrow {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            flex: 0 0 auto;
+            background: var(--bg-soft);
+            border: 1px solid var(--line);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aab3c5;
+            transition: all .26s cubic-bezier(.22, 1, .36, 1);
+        }
+
+        .module-arrow svg {
+            width: 16px;
+            height: 16px
+        }
+
+        .module:hover .module-arrow {
+            transform: translateX(4px)
+        }
+
+        /* —— 模块配色 —— */
+        /* 蓝：核心优势 */
+        .mod-blue .module-icon {
+            background: var(--blue-soft);
+            color: var(--blue)
+        }
+
+        .mod-blue:hover .module-icon {
+            background: var(--blue);
+            color: #fff
+        }
+
+        .mod-blue .module-title::before {
+            background: var(--blue)
+        }
+
+        .mod-blue:hover .module-arrow {
+            border-color: #d3e0fb;
+            color: var(--blue);
+            background: var(--blue-soft)
+        }
+
+        /* 绿：工作经历 */
+        .mod-green .module-icon {
+            background: var(--green-soft);
+            color: var(--green)
+        }
+
+        .mod-green:hover .module-icon {
+            background: var(--green);
+            color: #fff
+        }
+
+        .mod-green .module-title::before {
+            background: var(--green)
+        }
+
+        .mod-green:hover .module-arrow {
+            border-color: #c9ecdf;
+            color: var(--green);
+            background: var(--green-soft)
+        }
+
+        /* 橙：教育经历 */
+        .mod-orange .module-icon {
+            background: var(--accent-soft);
+            color: var(--accent)
+        }
+
+        .mod-orange:hover .module-icon {
+            background: var(--accent);
+            color: #fff
+        }
+
+        .mod-orange .module-title::before {
+            background: var(--accent)
+        }
+
+        .mod-orange:hover .module-arrow {
+            border-color: #fadfc9;
+            color: var(--accent);
+            background: var(--accent-soft)
+        }
+
+        /* 紫：证书与语言 */
+        .mod-violet .module-icon {
+            background: var(--violet-soft);
+            color: var(--violet)
+        }
+
+        .mod-violet:hover .module-icon {
+            background: var(--violet);
+            color: #fff
+        }
+
+        .mod-violet .module-title::before {
+            background: var(--violet)
+        }
+
+        .mod-violet:hover .module-arrow {
+            border-color: #ddd6fb;
+            color: var(--violet);
+            background: var(--violet-soft)
+        }
+
+        /* 折叠态隐藏正文 */
+        .module-body {
+            display: none;
+            margin-top: 22px;
+            padding-top: 22px;
+            border-top: 1px dashed var(--line);
+            cursor: default;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ============================================================
+   聚焦态：背景虚化 + 卡片放大
+   ============================================================ */
+        .resume-wrap::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: rgba(244, 241, 236, .68);
+            backdrop-filter: blur(7px);
+            -webkit-backdrop-filter: blur(7px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .36s ease, visibility .36s ease;
+            z-index: 240;
+        }
+
+        .resume-wrap.is-focus::before {
+            opacity: 1;
+            visibility: visible
+        }
+
+        .resume-wrap>.topbar,
+        .resume-wrap>.hero,
+        .resume-wrap>.module,
+        .resume-wrap>.focus-tip {
+            transition: filter .36s ease, opacity .36s ease;
+        }
+
+        .resume-wrap.is-focus>.topbar,
+        .resume-wrap.is-focus>.hero,
+        .resume-wrap.is-focus>.module:not(.is-active),
+        .resume-wrap.is-focus>.focus-tip {
+            filter: blur(6px) saturate(.7);
+            opacity: .24;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .module.is-active {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: min(900px, 92vw);
+            max-height: 88vh;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 0;
+            padding: 30px 34px 34px;
+            z-index: 300;
+            border: 1px solid #e8d5c8;
+            box-shadow: var(--shadow-lg);
+            cursor: default;
+            transform: translate(-50%, -50%);
+            animation: expandIn .4s cubic-bezier(.22, 1, .36, 1) both;
+        }
+
+        @keyframes expandIn {
+            from {
+                transform: translate(-50%, -50%) scale(.92);
+                opacity: .5
+            }
+
+            to {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1
+            }
+        }
+
+        .module.is-active:hover {
+            transform: translate(-50%, -50%);
+            box-shadow: var(--shadow-lg)
+        }
+
+        .module.is-active .module-body {
+            display: block;
+            animation: fadeIn .44s .08s both
+        }
+
+        .module.is-active .module-arrow {
+            transform: rotate(90deg);
+            color: #fff;
+            border-color: transparent;
+        }
+
+        .module.is-active .module-arrow line {
+            display: none
+        }
+
+        .module.is-active.mod-blue .module-arrow {
+            background: var(--blue)
+        }
+
+        .module.is-active.mod-green .module-arrow {
+            background: var(--green)
+        }
+
+        .module.is-active.mod-orange .module-arrow {
+            background: var(--accent)
+        }
+
+        .module.is-active.mod-violet .module-arrow {
+            background: var(--violet)
+        }
+
+        /* 自定义滚动条 */
+        .module.is-active::-webkit-scrollbar {
+            width: 8px
+        }
+
+        .module.is-active::-webkit-scrollbar-track {
+            background: transparent
+        }
+
+        .module.is-active::-webkit-scrollbar-thumb {
+            background: #dde3ee;
+            border-radius: 99px
+        }
+
+        .module.is-active::-webkit-scrollbar-thumb:hover {
+            background: #c6cede
+        }
+
+        /* ============================================================
+   内容样式
+   ============================================================ */
+        ul.adv {
+            list-style: none
+        }
+
+        ul.adv li {
+            position: relative;
+            padding-left: 22px;
+            margin-bottom: 12px;
+            font-size: 14.5px;
+            color: #333c50;
+            line-height: 1.85;
+        }
+
+        ul.adv li:last-child {
+            margin-bottom: 0
+        }
+
+        ul.adv li::before {
+            content: "";
+            position: absolute;
+            left: 2px;
+            top: 11px;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent);
+            opacity: .85;
+        }
+
+        /* 工作经历折叠条目 */
+        details.job {
+            border: 1px solid var(--line);
+            border-radius: 15px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            background: #fff;
+            transition: border-color .22s, box-shadow .22s;
+        }
+
+        details.job:last-child {
+            margin-bottom: 0
+        }
+
+        details.job[open] {
+            border-color: #e8d5c8;
+            box-shadow: 0 6px 20px rgba(200, 122, 74, .06)
+        }
+
+        details.job>summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 17px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            transition: background .2s;
+        }
+
+        details.job>summary::-webkit-details-marker {
+            display: none
+        }
+
+        details.job>summary:hover {
+            background: #fdfaf7
+        }
+
+        .job-title {
+            font-size: 15px;
+            font-weight: 700;
+            flex: 1 1 auto;
+            min-width: 200px;
+            letter-spacing: .2px
+        }
+
+        .job-role {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--accent);
+            background: var(--accent-soft);
+            padding: 3px 12px;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+
+        .job-date {
+            font-size: 12.5px;
+            color: var(--sub);
+            white-space: nowrap;
+            font-variant-numeric: tabular-nums;
+            font-weight: 500;
+        }
+
+        .chev {
+            width: 18px;
+            height: 18px;
+            flex: 0 0 auto;
+            color: #aab3c5;
+            transition: transform .28s ease
+        }
+
+        details.job[open] .chev {
+            transform: rotate(180deg);
+            color: var(--accent)
+        }
+
+        .job-body {
+            padding: 4px 20px 22px;
+            border-top: 1px dashed var(--line);
+            font-size: 14.5px;
+            color: #3b4459;
+            line-height: 1.85;
+        }
+
+        .job-body h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 18px 0 9px;
+            letter-spacing: .4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .job-body h4::before {
+            content: "";
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--accent);
+            opacity: .7;
+        }
+
+        .job-body h4:first-child {
+            margin-top: 16px
+        }
+
+        .job-body ul {
+            list-style: none
+        }
+
+        .job-body ul li {
+            position: relative;
+            padding-left: 19px;
+            margin-bottom: 8px
+        }
+
+        .job-body ul li:last-child {
+            margin-bottom: 0
+        }
+
+        .job-body ul li::before {
+            content: "";
+            position: absolute;
+            left: 2px;
+            top: 11px;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #c3cddd;
+        }
+
+        /* 教育 / 证书条目 */
+        .line-item {
+            font-size: 14.5px;
+            margin-bottom: 11px;
+            line-height: 1.8;
+            color: #333c50;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .line-item:last-child {
+            margin-bottom: 0
+        }
+
+        .line-item::before {
+            content: "";
+            position: absolute;
+            left: 2px;
+            top: 11px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--violet);
+            opacity: .7;
+        }
+
+        .line-item strong {
+            font-weight: 700;
+            color: var(--ink)
+        }
+
+        .focus-tip {
+            text-align: center;
+            color: #9aa3b8;
+            font-size: 12.5px;
+            margin-top: 38px;
+            line-height: 1.9;
+            letter-spacing: .2px;
+        }
+
+        @media(max-width:640px) {
+            .resume-wrap {
+                padding: 26px 18px 80px
+            }
+
+            .avatar {
+                width: 140px;
+                height: 140px;
+                font-size: 46px;
+                border-width: 6px
+            }
+
+            .cover-name {
+                font-size: 30px
+            }
+
+            header.hero {
+                padding: 24px;
+                gap: 18px
+            }
+
+            .module {
+                padding: 18px 18px
+            }
+
+            .module.is-active {
+                width: 94vw;
+                max-height: 90vh;
+                padding: 22px 20px 26px
+            }
+
+            .job-title {
+                min-width: 100%
+            }
+
+            .module-arrow {
+                width: 32px;
+                height: 32px
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==========================================================
+     界面一：封面
+     ========================================================== -->
+    <div id="pageCover" class="page active" onclick="go('pageCn')">
+        <!-- 已替换为您的照片，请将照片命名为 avatar.jpg 放在同一目录 -->
+        <div class="avatar"><img src="avatar.jpg" alt="黄丽"></div>
+        <div class="cover-name">黄<span>丽</span></div>
+        <div class="cover-en-name">Amy Huang</div>
+        <div class="cover-role">总助 / CEO助理 / 董事长助理</div>
+        <div class="cover-tags">
+            <span class="cover-tag">8年经验</span>
+            <span class="cover-tag">英语口译</span>
+            <span class="cover-tag">高管支持</span>
+            <span class="cover-tag">涉外事务</span>
+        </div>
+        <div class="cover-hint">点击头像查看简历</div>
+    </div>
+
+
+    <!-- ==========================================================
+     界面二：中文简历
+     ========================================================== -->
+    <div id="pageCn" class="page">
+        <div class="resume-wrap">
+
+            <div class="topbar">
+                <button class="back-btn" onclick="go('pageCover')">← 返回封面</button>
+                <button class="lang-toggle" onclick="go('pageEn')" title="Switch to English">
+                    <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                        stroke-linecap="round">
+                        <circle cx="12" cy="12" r="9" />
+                        <path d="M3 12h18" />
+                        <path d="M12 3c2.6 2.8 2.6 15.2 0 18" />
+                        <path d="M12 3c-2.6 2.8-2.6 15.2 0 18" />
+                    </svg>
+                    <span class="lang-text">EN</span>
+                </button>
+            </div>
+
+            <header class="hero">
+                <!-- 已替换为您的照片 -->
+                <div class="avatar-sm"><img src="avatar.jpg" alt="黄丽"></div>
+                <div class="hero-info">
+                    <h1>黄<span>丽</span></h1>
+                    <div class="hero-en">Amy Huang</div>
+                    <div class="meta">
+                        <span>总助 / CEO助理 / 董事长助理</span>
+                        <span>期望薪资 20-22K</span>
+                        <span>期望城市 上海</span>
+                        <span>8年工作经验</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- 模块 1：核心优势 -->
+            <div class="module mod-blue">
+                <div class="module-head">
+                    <div class="module-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                        </svg>
+                    </div>
+                    <div class="module-head-left">
+                        <div class="module-title">核心优势</div>
+                        <div class="module-sub">4 项核心能力概览 · 点击展开</div>
+                    </div>
+                    <div class="module-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 6 15 12 9 18" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="module-body">
+                    <ul class="adv">
+                        <li>8年跨行业经验，覆盖新能源汽车、材料科技、宠物食品、医疗科技等领域，具备总助 / 高管支持、政府与投资人接待、涉外事务、财务税务协调、商务口译经验。</li>
+                        <li>英语专业四级、专业八级，持有人事部三级笔译、上海高级口译证书，可胜任商务会议交替传译及涉外沟通。</li>
+                        <li>沟通协调与问题解决能力强，多任务并行时能沉着冷静、分清主次、快速推进。</li>
+                        <li>学习与适应能力强，可快速进入新领域并推动项目落地。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 模块 2：工作经历 -->
+            <div class="module mod-green">
+                <div class="module-head">
+                    <div class="module-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="7" width="20" height="14" rx="2.5" />
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                        </svg>
+                    </div>
+                    <div class="module-head-left">
+                        <div class="module-title">工作经历</div>
+                        <div class="module-sub">5 段工作经历 · 点击展开</div>
+                    </div>
+                    <div class="module-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 6 15 12 9 18" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="module-body">
+
+                    <details class="job" open>
+                        <summary>
+                            <span class="job-title">常熟科弘材料科技有限公司</span>
+                            <span class="job-role">直播运营</span>
+                            <span class="job-date">2024.08 – 至今</span>
+                            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                        </summary>
+                        <div class="job-body">
+                            <ul>
+                                <li>策划并执行钢铁厂主题直播，平均每周2-3场，覆盖生产流程、技术展示、产品特色等。</li>
+                                <li>设计直播脚本及工业场景互动话题，如“产线小课堂”“家电的故事”。</li>
+                                <li>跟踪观看量、互动率、转化率等数据，优化直播策略。</li>
+                                <li>利用AI工具创作短视频脚本，运营工厂抖音账号，提升粉丝互动与增长。</li>
+                                <li>每日数据追踪、月度复盘，建立钢铁行业短视频素材库，分类包括生产、安全、人文、红色主题。</li>
+                                <li>陪同企业领导参观厂区及数字化展示区域，现场解说生产工艺与技术亮点。</li>
+                                <li>协调采访一线工人，制作“钢铁人日记”系列短视频。</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <details class="job">
+                        <summary>
+                            <span class="job-title">合众新能源汽车股份有限公司</span>
+                            <span class="job-role">总助 / CEO助理 / 董事长助理</span>
+                            <span class="job-date">2023.11 – 2024.07</span>
+                            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                        </summary>
+                        <div class="job-body">
+                            <h4>政府及投资人关系维护</h4>
+                            <ul>
+                                <li>统筹政府领导、投资人及重要客户接待工作（含中东投资人），包括行程安排、会议筹备及后续跟进，确保商务接待专业高效。</li>
+                                <li>负责高层会议组织与记录，中东会议提供交替传译；撰写会议纪要并跟踪决议事项落实，提升会议决策效率。</li>
+                            </ul>
+                            <h4>高管支持与日程管理</h4>
+                            <ul>
+                                <li>全面协调总经理日程，包括差旅安排、会议预约及优先级管理，优化时间分配效率。</li>
+                                <li>协助处理总经理部分财务事务，如费用报销审核、预算跟踪及单据整理，确保合规性。</li>
+                            </ul>
+                            <h4>涉外事务处理</h4>
+                            <ul>
+                                <li>办理总经理签证、护照更新等涉外手续，确保100%按时获批。</li>
+                            </ul>
+                            <h4>财务与税务管理</h4>
+                            <ul>
+                                <li>主导新设公司税务登记与变更，协调工商、税务部门完成合规备案。</li>
+                                <li>作为公司与代理记账机构核心对接人，统筹月度报税、发票开具及税务报表审核，确保账务准确性与时效性。</li>
+                                <li>定期核对财务数据，梳理异常项，规避税务风险。</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <details class="job">
+                        <summary>
+                            <span class="job-title">仙庭商贸（上海）有限公司</span>
+                            <span class="job-role">农业农村部注册管理 / 总经理支持</span>
+                            <span class="job-date">2019.05 – 2023.09</span>
+                            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                        </summary>
+                        <div class="job-body">
+                            <ul>
+                                <li>全面负责进口宠物食品农业农村部注册流程：产品筛选、甘特图制定、文件准备与复核、中文标签合规设计。</li>
+                                <li>成果：完成22个配方注册，另有14个配方即将完成。</li>
+                                <li>确保产品按时完成注册，所有文件及宣称符合中国法规要求。</li>
+                                <li>协同生产、采购、市场、销售及售后团队，保障业务高效运转。</li>
+                                <li>开展新品上市培训及质量管控标准宣导。</li>
+                                <li>协助总经理跟进团队进度，确保项目按计划推进。</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <details class="job">
+                        <summary>
+                            <span class="job-title">上海光美集</span>
+                            <span class="job-role">商务经理</span>
+                            <span class="job-date">2018.05 – 2019.05</span>
+                            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                        </summary>
+                        <div class="job-body">
+                            <h4>翻译与口译</h4>
+                            <ul>
+                                <li>翻译临床研究论文和技术文件，确保医学术语准确。</li>
+                                <li>提供国际展会现场口译、会议口译、交替传译、陪同口译、临床培训及售后培训口译、宣传视频听译。</li>
+                            </ul>
+                            <h4>沟通管理</h4>
+                            <ul>
+                                <li>处理邮件往来业务，包括付款计划、采购事宜、售后相关问题、临床咨询及常规商务往来。</li>
+                                <li>通过电话处理紧急事务，通过微信保持日常沟通。</li>
+                            </ul>
+                            <h4>行政支持</h4>
+                            <ul>
+                                <li>签证申请协助、行程安排与管理、外宾接待安排。</li>
+                                <li>法律咨询协调（法规合规、合同审核）及药监相关事项跟进。</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <details class="job">
+                        <summary>
+                            <span class="job-title">南京晨光</span>
+                            <span class="job-role">总裁 / 总经理 / CEO助理</span>
+                            <span class="job-date">2016.09 – 2018.03</span>
+                            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                        </summary>
+                        <div class="job-body">
+                            <ul>
+                                <li>制作报销单，协助处理日常费用单据。</li>
+                                <li>跨部门协作，跟进事项落地。</li>
+                                <li>处理邮件及其他行政事务。</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                </div>
+            </div>
+
+            <!-- 模块 3：教育经历 -->
+            <div class="module mod-orange">
+                <div class="module-head">
+                    <div class="module-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 10 12 5 2 10l10 5 10-5Z" />
+                            <path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5" />
+                        </svg>
+                    </div>
+                    <div class="module-head-left">
+                        <div class="module-title">教育经历</div>
+                        <div class="module-sub">西南科技大学 · 翻译硕士 · 点击展开</div>
+                    </div>
+                    <div class="module-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 6 15 12 9 18" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="module-body">
+                    <div class="line-item"><strong>西南科技大学</strong> | 硕士 · 翻译硕士（MTI）· 英语口译方向</div>
+                </div>
+            </div>
+
+            <!-- 模块 4：证书与语言 -->
+            <div class="module mod-violet">
+                <div class="module-head">
+                    <div class="module-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="9" r="6" />
+                            <path d="M8.2 14.3 7 22l5-3 5 3-1.2-7.7" />
+                        </svg>
+                    </div>
+                    <div class="module-head-left">
+                        <div class="module-title">证书与语言</div>
+                        <div class="module-sub">语言证书与工作语言 · 点击展开</div>
+                    </div>
+                    <div class="module-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 6 15 12 9 18" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="module-body">
+                    <div class="line-item">英语专业四级、专业八级</div>
+                    <div class="line-item">人事部三级笔译（CATTI）</div>
+                    <div class="line-item">上海高级口译</div>
+                    <div class="line-item">中文母语，英语可作为工作语言</div>
+                </div>
+            </div>
+
+            <div class="focus-tip">点击任一模块放大查看 · 再次点击或按 Esc 还原</div>
+        </div>
+    </div>
+
+
+    <!-- ==========================================================
+     界面三：英文简历
+     ========================================================== -->
+    <div id="pageEn" class="page">
+        <div class="resume-wrap">
+
+            <div class="topbar">
+                <button class="back-btn" onclick="go('pageCover')">← Back to Cover</button>
+                <button class="lang-toggle" onclick="go('pageCn')" title="切换到中文">
+                    <svg class="globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                        stroke-linecap="round">
+                        <circle cx="12" cy="12" r="9" />
+                        <path d="M3 12h18" />
+                        <path d="M12 3c2.6 2.8 2.6 15.2 0 18" />
+                        <path d="M12 3c-2.6 2.8-2.6 15.2 0 18" />
+                    </svg>
+                    <span class="lang-text">中文</span>
+                </button>
+            </div>
+
+            <header class="hero">
+                <!-- 已替换为您的照片 -->
+                <div class="avatar-sm"><img src="avatar.jpg" alt="Amy Huang"></div>
+                <div class="hero-info">
+                    <h1>Amy Huang</h1>
+                    <div class="meta">
+                        <span>Executive Assistant / CEO Assistant</span>
+                        <span>Expected RMB 20-22K</span>
+                        <span>Shanghai</span>
+                        <span>8 Years Experience</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Module 1 -->
+            <div class="module mod-blue">
+                <div class="module-head">
+                    <div class="module-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                        </svg>
+                    </div>
+                    <div class="module-head-left">
+                        <div class="module-title">Core Strengths</div>
+                        <div class="module-sub">4 key highlights · Click to expand</div>
+                    </div>
+                    <div class="module-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 6 15 12 9 18" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="module-body">
+                    <ul class="adv">
+                        <li>8 years of cross-industry experience covering new energy vehicles, material technology, pet
+                            food, and medical technology; experienced in executive support, government &amp; investor
+                            relations, international affairs, financial and tax coordination, and business
+                            interpretation.</li>
+                        <li>TEM-4 and TEM-8; CATTI Level 3 Translation; Shanghai Advanced Interpretation Certificate.
+                            Capable of consecutive interpretation and business conference interpretation.</li>
+                        <li>Strong communication and problem-solving skills; able to remain calm, prioritize, and
+                            execute efficiently under multiple tasks.</li>
+                        <li>Fast learner and highly adaptable; able to quickly enter new fields and drive projects to
+                            completion.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Module 2 -->
+            <div class="module mod-green">
+                <div class="module-head">
+                    <div class="module-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="7" width="20" height="14" rx="2.5" />
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                        </svg>
+                    </div>
+                    <div class="module-head-left">
+                        <div class="module-title">Professional Experience</div>
+                        <div class="module-sub">5 positions · Click to expand</div>
+                    </div>
+                    <div class="module-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 6 15 12 9 18" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="module-body">
+
+                    <details class="job" open>
+                        <summary>
+                            <span class="job-title">Changshu Kehong Material Technology Co., Ltd.</span>
+                            <span class="job-role">Live Streaming Operations</span>
+                            <span class="job-date">Aug 2024 – Present</span>
+                            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                        </summary>
+                        <div class="job-body">
+                            <ul>
+                                <li>Planned and executed themed live broadcasts for a steel factory, averaging 2-3
+                                    sessions per week, covering production processes, technology showcases, and product
+                                    features.</li>
+                                <li>Designed live scripts and industry-specific interactive topics, such as “Production
+                                    Line Classroom” and “The Story of Home Appliances.”</li>
+                                <li>Tracked viewership, engagement, and conversion rates to optimize live streaming
+                                    strategies.</li>
+                                <li>Used AI tools to develop innovative short-video scripts; managed the factory’s
+                                    Douyin account to drive engagement and growth.</li>
+                                <li>Conducted daily data tracking and monthly reviews; built a steel-industry
+                                    short-video database covering Production, Safety, Culture, and Red-themed content.
+                                </li>
+                                <li>Accompanied company leaders on facility and digital exhibition tours, providing
+                                    on-site explanations of production processes and technological highlights.</li>
+                                <li>Coordinated interviews with frontline workers to produce the “Steelworkers’ Diaries”
+                                    short-video series.</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <details class="job">
+                        <summary>
+                            <span class="job-title">Hozon New Energy Automobile Co., Ltd.</span>
+                            <span class="job-role">Executive Assistant / CEO Assistant</span>
+                            <span class="job-date">Nov 2023 – Jul 2024</span>
+                            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                        </summary>
+                        <div class="job-body">
+                            <h4>Government &amp; Investor Relations</h4>
+                            <ul>
+                                <li>Orchestrated reception activities for government officials, investors (including
+                                    Middle Eastern investors), and key clients, covering itinerary coordination, meeting
+                                    preparation, and follow-up to ensure professional and efficient business
+                                    engagements.</li>
+                                <li>Organized and documented high-level meetings; provided consecutive interpretation
+                                    for Middle Eastern meetings when required; drafted meeting minutes and tracked
+                                    implementation of resolutions to enhance decision-making efficiency.</li>
+                            </ul>
+                            <h4>Executive Support &amp; Schedule Management</h4>
+                            <ul>
+                                <li>Comprehensively coordinated the General Manager’s schedule, including travel
+                                    arrangements, meeting appointments, and priority management to optimize time
+                                    allocation.</li>
+                                <li>Assisted in handling the General Manager’s financial affairs, such as expense
+                                    reimbursement reviews, budget tracking, and document organization to ensure
+                                    compliance.</li>
+                            </ul>
+                            <h4>International Affairs Handling</h4>
+                            <ul>
+                                <li>Managed the General Manager’s visa applications, passport renewals, and other
+                                    international procedures, ensuring 100% on-time approval.</li>
+                            </ul>
+                            <h4>Financial &amp; Tax Management</h4>
+                            <ul>
+                                <li>Spearheaded tax registration and modifications for newly established companies,
+                                    coordinating with industrial/commercial and tax authorities to complete compliance
+                                    filings.</li>
+                                <li>Served as the primary liaison between the company and external accounting agencies,
+                                    overseeing monthly tax filings, invoice issuance, and financial statement reviews to
+                                    ensure accounting accuracy and timeliness.</li>
+                                <li>Conducted regular financial data verification, identified discrepancies, and
+                                    mitigated tax risks.</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <details class="job">
+                        <summary>
+                            <span class="job-title">Petjust Pet Food Company Co., Ltd.</span>
+                            <span class="job-role">MARA Registration / GM Support</span>
+                            <span class="job-date">May 2019 – Sep 2023</span>
+                            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                        </summary>
+                        <div class="job-body">
+                            <ul>
+                                <li>Led end-to-end MARA registration for imported pet food, including product selection,
+                                    Gantt charts, document preparation and review, and compliant Chinese label design.
+                                </li>
+                                <li>Achievement: Successfully registered 22 recipes, with 14 additional recipes nearing
+                                    completion.</li>
+                                <li>Ensured on-time registration and verified all documents and claims met Chinese
+                                    regulatory standards.</li>
+                                <li>Collaborated with Production, Purchasing, Marketing, Sales, and After-Sales teams to
+                                    align business operations.</li>
+                                <li>Conducted training sessions for new product launches and quality assurance
+                                    protocols.</li>
+                                <li>Assisted the General Manager in tracking team progress and maintaining project
+                                    timelines.</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <details class="job">
+                        <summary>
+                            <span class="job-title">Shanghai GMS Medical Tech Ltd., Co.</span>
+                            <span class="job-role">Business Manager</span>
+                            <span class="job-date">May 2018 – May 2019</span>
+                            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                        </summary>
+                        <div class="job-body">
+                            <h4>Translation &amp; Interpretation</h4>
+                            <ul>
+                                <li>Translated clinical research papers and technical documents with accurate medical
+                                    terminology.</li>
+                                <li>Provided on-site interpretation at international exhibitions and trade shows;
+                                    conference interpretation, consecutive interpretation, escort interpretation;
+                                    clinical training and AS training interpretation; audiovisual translation of
+                                    promotional materials.</li>
+                            </ul>
+                            <h4>Communication Management</h4>
+                            <ul>
+                                <li>Handled business communications via email, including payment schedules, procurement
+                                    matters, AS-related issues, clinical inquiries, and general business correspondence.
+                                </li>
+                                <li>Addressed urgent matters through phone communication; maintained daily communication
+                                    via WeChat.</li>
+                            </ul>
+                            <h4>Administrative Support</h4>
+                            <ul>
+                                <li>Visa application assistance, schedule coordination and management, arrangement of
+                                    reception for international visitors.</li>
+                                <li>Legal consultation coordination (regulatory compliance, contract review) and
+                                    CFDA-related follow-up.</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <details class="job">
+                        <summary>
+                            <span class="job-title">Nanjing Chenguang</span>
+                            <span class="job-role">President / GM / CEO Assistant</span>
+                            <span class="job-date">Sep 2016 – Mar 2018</span>
+                            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                        </summary>
+                        <div class="job-body">
+                            <ul>
+                                <li>Prepared reimbursement forms and handled daily expense documents.</li>
+                                <li>Collaborated with other departments and followed up on task execution.</li>
+                                <li>Handled emails and other administrative tasks.</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                </div>
+            </div>
+
+            <!-- Module 3 -->
+            <div class="module mod-orange">
+                <div class="module-head">
+                    <div class="module-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 10 12 5 2 10l10 5 10-5Z" />
+                            <path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5" />
+                        </svg>
+                    </div>
+                    <div class="module-head-left">
+                        <div class="module-title">Education</div>
+                        <div class="module-sub">Southwest University of Science and Technology · Click to expand</div>
+                    </div>
+                    <div class="module-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 6 15 12 9 18" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="module-body">
+                    <div class="line-item"><strong>Southwest University of Science and Technology</strong> | Master of
+                        Translation and Interpreting (MTI), English Interpreting</div>
+                </div>
+            </div>
+
+            <!-- Module 4 -->
+            <div class="module mod-violet">
+                <div class="module-head">
+                    <div class="module-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="9" r="6" />
+                            <path d="M8.2 14.3 7 22l5-3 5 3-1.2-7.7" />
+                        </svg>
+                    </div>
+                    <div class="module-head-left">
+                        <div class="module-title">Certificates &amp; Languages</div>
+                        <div class="module-sub">Certificates and working languages · Click to expand</div>
+                    </div>
+                    <div class="module-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 6 15 12 9 18" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="module-body">
+                    <div class="line-item">TEM-4, TEM-8</div>
+                    <div class="line-item">CATTI Level 3 Translation</div>
+                    <div class="line-item">Shanghai Advanced Interpretation Certificate</div>
+                    <div class="line-item">Native Mandarin; English as working language</div>
+                </div>
+            </div>
+
+            <div class="focus-tip">Click any module to enlarge · Click again or press Esc to close</div>
+        </div>
+    </div>
+
+
+    <script>
+        /* ============================================================
+           页面路由
+           ============================================================ */
+        var PAGES = ['pageCover', 'pageCn', 'pageEn'];
+
+        function go(id) {
+            closeAllModules();
+            if (location.hash === '#' + id) {
+                render(id);
+            } else {
+                location.hash = id;
+            }
+        }
+
+        function render(id) {
+            if (PAGES.indexOf(id) === -1) id = 'pageCover';
+            PAGES.forEach(function (pid) {
+                document.getElementById(pid).classList.toggle('active', pid === id);
+            });
+            document.documentElement.setAttribute('lang', id === 'pageEn' ? 'en' : 'zh-CN');
+            window.scrollTo(0, 0);
+        }
+
+        window.addEventListener('hashchange', function () {
+            render(location.hash.replace('#', ''));
+        });
+
+        /* ============================================================
+           模块放大 / 还原
+           ============================================================ */
+        function closeAllModules() {
+            document.querySelectorAll('.module.is-active').forEach(function (c) {
+                c.classList.remove('is-active');
+            });
+            document.querySelectorAll('.resume-wrap.is-focus').forEach(function (w) {
+                w.classList.remove('is-focus');
+            });
+            document.body.classList.remove('no-scroll');
+        }
+
+        function toggleModule(card) {
+            var wrap = card.closest('.resume-wrap');
+            var wasActive = card.classList.contains('is-active');
+
+            closeAllModules();
+
+            if (!wasActive) {
+                card.classList.add('is-active');
+                wrap.classList.add('is-focus');
+                document.body.classList.add('no-scroll');
+            }
+        }
+
+        /* 点击模块头部：放大 / 还原 */
+        document.querySelectorAll('.module-head').forEach(function (head) {
+            head.addEventListener('click', function (e) {
+                e.stopPropagation();
+                toggleModule(head.closest('.module'));
+            });
+        });
+
+        /* 点击模块内容区域：阻止冒泡，不触发还原 */
+        document.querySelectorAll('.module-body').forEach(function (body) {
+            body.addEventListener('click', function (e) {
+                e.stopPropagation();
+            });
+        });
+
+        /* 点击放大卡片以外的区域：还原 */
+        document.addEventListener('click', function (e) {
+            var active = document.querySelector('.module.is-active');
+            if (!active) return;
+            if (!active.contains(e.target)) {
+                closeAllModules();
+            }
+        });
+
+        /* Esc 键还原 */
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' || e.keyCode === 27) {
+                closeAllModules();
+            }
+        });
+
+        /* ============================================================
+           初始化
+           ============================================================ */
+        render(location.hash.replace('#', '') || 'pageCover');
+    </script>
+
+</body>
+
+</html>
